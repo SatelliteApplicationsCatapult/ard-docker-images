@@ -15,11 +15,11 @@ RUN pip install --no-cache-dir \
 RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_unix_7_0.sh && \
     /bin/sh ./esa-snap_sentinel_unix_7_0.sh -q && \
     rm ./esa-snap_sentinel_unix_7_0.sh && \
-    ./snap/bin/snap --nosplash --nogui --modules --update-all -q
+    /opt/snap/bin/snap --nosplash --nogui --modules --update-all
 
 # ------------------------------------------
 
-COPY utils /utils
+COPY workflows/utils /utils
 
 COPY worker.py /worker.py
 
@@ -34,7 +34,7 @@ CMD [ "python", "worker.py" ]
 #    && conda clean --all -f -y && \
 #    mkdir /opt/notebooks
 
-#COPY utils /opt/notebooks/utils
+#COPY workflows/utils /opt/notebooks/utils
 
 #COPY rediswq.py /opt/notebooks
 
