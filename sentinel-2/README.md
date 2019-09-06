@@ -2,7 +2,7 @@
 
 ## Base image
 The provided [Dockerfile](Dockerfile) creates a Docker image with an ARD workflow set up by means of Miniconda v4.7.10.
-[Jupyter Notebook](https://jupyter.org/) is included as well and started once the Docker image is run.
+[Jupyter Notebook](https://jupyter.org/) is optionally included and started once the Docker image is run.
 
 ## Docker Compose
 A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance.\
@@ -33,9 +33,4 @@ Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8888 fo
 For the access token, check the CMD statement within the [Dockerfile](Dockerfile).
 
 ## TODO
-The `process_scene()` method will be generalised for multiple satellites and source locations, thus taking multiple arguments.\
-Consequently, jobs will be defined by means of JSON entries, such as:
-
-```
-'{"in_scene": "S2A_MSIL1C_20180820T223011_N0206_R072_T60KWE_20180821T013410.SAFE", "s3_bucket": "public-eo-data", "s3_dir": "fiji/Sentinel_2_test/", "inter_dir": "/data/intermediate", "prodlevel": "L2A", "source": "gcloud"}'
-```
+- Define the `PLATFORM` and `QUEUE_NAME` environment variables, so these can be set to `SENTINEL_2` and `jobS2` respectively, making the worker code agnostic of the satellite/platform to work on
