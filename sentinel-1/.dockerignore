@@ -1,0 +1,4 @@
+data
+redisdata
+.env
+docker-compose.yml
