@@ -35,3 +35,4 @@ For the access token, check the CMD statement within the [Dockerfile](Dockerfile
 ## TODO
 - Define the `PLATFORM` and `QUEUE_NAME` environment variables, so these can be set to `SENTINEL_2` and `jobS2` respectively, making the worker code agnostic of the satellite/platform to work on
 - Define the `LEASE_SECS` and `TIMEOUT` environment variables, so these can be set according to what is appropriate for the satellite/platform to worn on
+- Generate a single Docker image: Jupyter Notobook should be optionally installed upon deployment, based on an environment variable, e.g. `JUPYTER_NOTEBOOK` set to `YES`
