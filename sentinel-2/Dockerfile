@@ -40,7 +40,7 @@ CMD [ "python", "worker.py" ]
 #    && conda clean --all -f -y && \
 #    mkdir /opt/notebooks
 
-#COPY utils /opt/notebooks/utils
+#COPY workflows/utils /opt/notebooks/utils
 
 #COPY rediswq.py /opt/notebooks
 
