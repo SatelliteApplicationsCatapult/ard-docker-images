@@ -13,8 +13,8 @@ To use it you can issue, for example for 3 worker containers:
 Once the above completes, the job queue is ready to be filled in with scene names by issuing:
 
 ```
-docker exec -it redis /bin/bash
-redis-cli -h redis
+docker exec -it redis-master /bin/bash
+redis-cli -h redis-master
 rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "inter_dir": "/data/intermediate/"}'
 ...
 lrange jobS2 0 -1
