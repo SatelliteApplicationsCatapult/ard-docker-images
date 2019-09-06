@@ -13,7 +13,7 @@ services:
   
   jupyter-worker:
     #build: .
-    image: satapps/ard-workflow-s2-jupyter
+    image: satapps/ard-workflow-s2-jupyter:0.5.0
     environment:
       - AWS_ACCESS_KEY_ID_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
