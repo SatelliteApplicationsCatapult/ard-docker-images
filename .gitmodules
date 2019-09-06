@@ -1,0 +1,3 @@
+[submodule "sentinel-2/workflows"]
+	path = sentinel-2/workflows
+	url = https://luigidifraia@github.com/tjones1993/IPP_Common_Sensing.git

@@ -25,7 +25,7 @@ RUN pip install --no-cache-dir \
 
 # ------------------------------------------
 
-COPY utils /utils
+COPY workflows/utils /utils
 
 COPY worker.py /worker.py
 
