@@ -24,7 +24,7 @@ For [mass insertion](https://redis.io/topics/mass-insert) you can use e.g.:
 
 ```bash
 docker exec -it redis-master /bin/bash
-I have no name!@redis-client:/$ cat <<EOF | redis-cli -h redis-master --pipe
+cat <<EOF | redis-cli -h redis-master --pipe
 rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "s3_dir": "fiji/Sentinel_2/"}'
 ...
 EOF
