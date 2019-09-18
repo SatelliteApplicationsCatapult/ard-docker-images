@@ -1,7 +1,7 @@
-# ARD workflow container infrastructure
+# ARD Workflow Container for Sentinel-2 Datasets
 
 ## Base image
-The provided [Dockerfile](Dockerfile) creates a Docker image with an ARD workflow set up by means of Miniconda v4.7.10.
+The provided [Dockerfile](Dockerfile) creates a Docker image with an ARD workflow for Sentinel-2 datasets set up by means of Miniconda v4.7.10.
 [Jupyter Notebook](https://jupyter.org/) can be optionally included and started once the Docker image is run.
 
 ## Docker Compose
