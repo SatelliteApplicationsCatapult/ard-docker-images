@@ -2,7 +2,7 @@
 
 ## Base image
 The provided [Dockerfile](Dockerfile) creates a Docker image with an ARD workflow set up by means of Miniconda v4.7.10.
-[Jupyter Notebook](https://jupyter.org/) is optionally included and started once the Docker image is run.
+[Jupyter Notebook](https://jupyter.org/) can be optionally included and started once the Docker image is run.
 
 ## Docker Compose
 A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance.\
@@ -10,14 +10,24 @@ To use it you can issue, for example for 3 worker containers:
 
 ```docker-compose up --scale jupyter-worker=3 -d```
 
-Once the above completes, the job queue is ready to be filled in with scene names by issuing:
+Once the above completes, the job queue is ready to be filled in with work items by issuing:
 
-```
+```bash
 docker exec -it redis-master /bin/bash
 redis-cli -h redis-master
-rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "inter_dir": "/data/intermediate/"}'
+rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "s3_dir": "fiji/Sentinel_2/"}'
 ...
 lrange jobS2 0 -1
+```
+
+For [mass insertion](https://redis.io/topics/mass-insert) you can use e.g.:
+
+```bash
+docker exec -it redis-master /bin/bash
+I have no name!@redis-client:/$ cat <<EOF | redis-cli -h redis-master --pipe
+rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "s3_dir": "fiji/Sentinel_2/"}'
+...
+EOF
 ```
 
 At any time afterwards, the queue can be processed interactively by running the [worker](worker.ipynb) Jupyter Notebook.
