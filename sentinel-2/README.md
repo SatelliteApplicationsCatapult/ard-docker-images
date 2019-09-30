@@ -4,6 +4,9 @@
 The provided [Dockerfile](Dockerfile) creates a Docker image with an ARD workflow for Sentinel-2 datasets set up by means of Miniconda v4.7.10.
 [Jupyter Notebook](https://jupyter.org/) can be optionally included and started once the Docker image is run.
 
+## Docker Hub images
+Pre-built Docker images can be pulled from [our Docker Hub repo](https://hub.docker.com/r/satapps/).
+
 ## Docker Compose
 A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance.\
 To use it you can issue, for example for 3 worker containers:
