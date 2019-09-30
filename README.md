@@ -2,4 +2,4 @@
 
 Docker images to deploy ARD workflows.
 
-:warning: For large scale deployments, please visit the [Helm Charts repo](https://github.com/SatelliteApplicationsCatapult/helm-charts) instead. :warning:
+:warning: For large scale deployments (i.e. *campaigns*), please visit the [Helm Charts repo](https://github.com/SatelliteApplicationsCatapult/helm-charts) instead. :warning:
