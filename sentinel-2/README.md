@@ -15,7 +15,7 @@ Once the above completes, the job queue is ready to be filled in with work items
 ```bash
 docker exec -it redis-master /bin/bash
 redis-cli -h redis-master
-rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "s3_dir": "fiji/Sentinel_2/"}'
+rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "s3_bucket": "pds-satapps", "s3_dir": "fiji/Sentinel_2/"}'
 ...
 lrange jobS2 0 -1
 ```
@@ -25,7 +25,7 @@ For [mass insertion](https://redis.io/topics/mass-insert) you can use e.g.:
 ```bash
 docker exec -it redis-master /bin/bash
 cat <<EOF | redis-cli -h redis-master --pipe
-rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "s3_dir": "fiji/Sentinel_2/"}'
+rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813T014708", "s3_bucket": "pds-satapps", "s3_dir": "fiji/Sentinel_2/"}'
 ...
 EOF
 ```
