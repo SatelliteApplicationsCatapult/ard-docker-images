@@ -38,7 +38,7 @@ CMD [ "python", "worker.py" ]
 
 # ------------------------------------------
 
-#RUN conda install --quiet --yes \
+#RUN conda install --quiet --yes --freeze-installed \
 #    jupyter \
 #    && conda clean --all -f -y \
 #    && find /opt/conda/ -follow -type f -name '*.a' -delete \
