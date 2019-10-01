@@ -40,8 +40,11 @@ CMD [ "python", "worker.py" ]
 
 #RUN conda install --quiet --yes \
 #    jupyter \
-#    && conda clean --all -f -y && \
-#    mkdir /opt/notebooks
+#    && conda clean --all -f -y \
+#    && find /opt/conda/ -follow -type f -name '*.a' -delete \
+#    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
+#    && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
+#    && mkdir /opt/notebooks
 
 #COPY workflows/utils /opt/notebooks/utils
 
