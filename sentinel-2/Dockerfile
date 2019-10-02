@@ -28,34 +28,34 @@ RUN pip install --no-cache-dir \
 
 # ------------------------------------------
 
-COPY workflows/utils /utils
+#COPY workflows/utils /utils
 
-COPY worker.py /worker.py
+#COPY worker.py /worker.py
 
-COPY rediswq.py /rediswq.py
+#COPY rediswq.py /rediswq.py
 
-CMD [ "python", "worker.py" ]
+#CMD [ "python", "worker.py" ]
 
 # ------------------------------------------
 
-#RUN conda install --quiet --yes --freeze-installed \
-#    jupyter \
-#    && conda clean --all -f -y \
-#    && find /opt/conda/ -follow -type f -name '*.a' -delete \
-#    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
-#    && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
-#    && mkdir /opt/notebooks
+RUN conda install --quiet --yes --freeze-installed \
+    jupyter \
+    && conda clean --all -f -y \
+    && find /opt/conda/ -follow -type f -name '*.a' -delete \
+    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
+    && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
+    && mkdir /opt/notebooks
 
-#COPY workflows/utils /opt/notebooks/utils
+COPY workflows/utils /opt/notebooks/utils
 
-#COPY rediswq.py /opt/notebooks
+COPY rediswq.py /opt/notebooks
 
-#COPY worker.ipynb /opt/notebooks
+COPY worker.ipynb /opt/notebooks
 
-#CMD jupyter notebook \
-#    --allow-root \
-#    --notebook-dir=/opt/notebooks \
-#    --NotebookApp.ip='0.0.0.0' \
-#    --NotebookApp.port='8888' \
-#    --NotebookApp.token='secretpassword' \
-#    --NotebookApp.open_browser='False'
+CMD jupyter notebook \
+    --allow-root \
+    --notebook-dir=/opt/notebooks \
+    --NotebookApp.ip='0.0.0.0' \
+    --NotebookApp.port='8888' \
+    --NotebookApp.token='secretpassword' \
+    --NotebookApp.open_browser='False'

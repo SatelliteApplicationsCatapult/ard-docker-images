@@ -12,8 +12,8 @@ services:
       - ./redisdata:/data
   
   jupyter-worker:
-    #build: .
-    image: satapps/ard-workflow-s2-jupyter:0.6.0
+    build: .
+    #image: satapps/ard-workflow-s2-jupyter:0.6.0
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
