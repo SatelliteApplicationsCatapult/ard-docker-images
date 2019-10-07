@@ -46,7 +46,7 @@ RUN conda install --quiet --yes --freeze-installed \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
     && mkdir /opt/notebooks
 
-COPY workflows/utils /opt/notebooks/utils
+COPY workflows /opt/notebooks
 
 COPY rediswq.py /opt/notebooks
 
