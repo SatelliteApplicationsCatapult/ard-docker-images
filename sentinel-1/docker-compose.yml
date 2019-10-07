@@ -25,5 +25,5 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - ./data:/data
+      - ./data:/tmp/data
     restart: always
