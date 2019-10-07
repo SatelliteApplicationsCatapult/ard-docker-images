@@ -23,7 +23,7 @@ services:
       - S1_PROCESS_P2=${S1_PROCESS_P2}
       - SNAP_GPT=${SNAP_GPT}
     ports:
-      - "8888-8900:8888"
+      - "8888:8888"
     volumes:
       - ./data:/data
     restart: always
