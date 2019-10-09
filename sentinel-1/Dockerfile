@@ -24,11 +24,11 @@ RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_
 
 #COPY workflows/utils /utils
 
-#COPY worker.py /worker.py
+#COPY worker-s1.py /worker-s1.py
 
 #COPY rediswq.py /rediswq.py
 
-#CMD [ "python", "worker.py" ]
+#CMD [ "python", "worker-s1.py" ]
 
 # ------------------------------------------
 
@@ -44,7 +44,7 @@ RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_
 
 #COPY rediswq.py /opt/notebooks
 
-#COPY worker.ipynb /opt/notebooks
+#COPY worker-s1.ipynb /opt/notebooks
 
 #CMD jupyter notebook \
 #    --allow-root \
