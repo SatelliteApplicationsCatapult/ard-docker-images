@@ -32,19 +32,36 @@ RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_
 
 # ------------------------------------------
 
+#RUN conda install --quiet --yes --freeze-installed \
+#    jupyter \
+#    && conda clean --all -f -y \
+#    && find /opt/conda/ -follow -type f -name '*.a' -delete \
+#    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
+#    && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
+#    && mkdir /opt/notebooks
+
+#COPY workflows /opt/notebooks
+
+#COPY rediswq.py /opt/notebooks
+
+#COPY worker.ipynb /opt/notebooks
+
+#CMD jupyter notebook \
+#    --allow-root \
+#    --notebook-dir=/opt/notebooks \
+#    --NotebookApp.ip='0.0.0.0' \
+#    --NotebookApp.port='8888' \
+#    --NotebookApp.token='secretpassword' \
+#    --NotebookApp.open_browser='False'
+
+# ------------------------------------------
+
 RUN conda install --quiet --yes --freeze-installed \
     jupyter \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
-    && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
-    && mkdir /opt/notebooks
-
-COPY workflows /opt/notebooks
-
-COPY rediswq.py /opt/notebooks
-
-COPY worker.ipynb /opt/notebooks
+    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
 CMD jupyter notebook \
     --allow-root \
@@ -53,3 +70,4 @@ CMD jupyter notebook \
     --NotebookApp.port='8888' \
     --NotebookApp.token='secretpassword' \
     --NotebookApp.open_browser='False'
+
