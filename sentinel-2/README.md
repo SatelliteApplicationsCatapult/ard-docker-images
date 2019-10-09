@@ -11,7 +11,7 @@ Pre-built Docker images can be pulled from [our Docker Hub repo](https://hub.doc
 A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance.\
 To use it you can issue, for example for 3 worker containers:
 
-```docker-compose up --scale jupyter-worker=3 -d```
+```docker-compose up -d```
 
 Once the above completes, the job queue is ready to be filled in with work items by issuing:
 
@@ -42,7 +42,7 @@ Environment variables can be set in a `.env` file for Docker Compose. You might 
 In order to be able to get/put data from/to S3, you need to ensure that the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are set.
 
 ## Jupyter Notebook
-Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8888 for the first replica, 8889 for the second one if present, and so on.\
+Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8888.\
 For the access token, check the CMD statement within the [Dockerfile](Dockerfile).
 
 ## TODO
