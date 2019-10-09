@@ -30,11 +30,11 @@ RUN pip install --no-cache-dir \
 
 #COPY workflows/utils /utils
 
-#COPY worker.py /worker.py
+#COPY worker-s2.py /worker-s2.py
 
 #COPY rediswq.py /rediswq.py
 
-#CMD [ "python", "worker.py" ]
+#CMD [ "python", "worker-s2.py" ]
 
 # ------------------------------------------
 
@@ -50,7 +50,7 @@ RUN pip install --no-cache-dir \
 
 #COPY rediswq.py /opt/notebooks
 
-#COPY worker.ipynb /opt/notebooks
+#COPY worker-s2.ipynb /opt/notebooks
 
 #CMD jupyter notebook \
 #    --allow-root \

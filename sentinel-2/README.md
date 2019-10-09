@@ -33,7 +33,7 @@ rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813
 EOF
 ```
 
-At any time afterwards, the queue can be processed interactively by running the [worker](worker.ipynb) Jupyter Notebook.
+At any time afterwards, the queue can be processed interactively by running the [worker](worker-s2.ipynb) Jupyter Notebook.
 
 ## Environment variables for Docker Compose
 Environment variables can be set in a `.env` file for Docker Compose. You might use [.env.example](./.env.example) as a starting point. The [.gitignore](../.gitignore) file contains an entry for `.env` in order to avoid it from being accidentally added to this repository, so the `.env` file is suitable for storing sensitive information.

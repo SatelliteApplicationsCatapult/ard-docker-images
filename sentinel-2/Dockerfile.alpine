@@ -30,11 +30,11 @@ RUN /opt/conda/bin/pip install --no-cache-dir \
 
 #COPY workflows/utils /utils
 
-#COPY worker.py /worker.py
+#COPY worker-s2.py /worker-s2.py
 
 #COPY rediswq.py /rediswq.py
 
-#CMD [ "python", "worker.py" ]
+#CMD [ "python", "worker-s2.py" ]
 
 # ------------------------------------------
 
@@ -50,7 +50,7 @@ RUN /opt/conda/bin/pip install --no-cache-dir \
 
 #COPY rediswq.py /opt/notebooks
 
-#COPY worker.ipynb /opt/notebooks
+#COPY worker-s2.ipynb /opt/notebooks
 
 #CMD /opt/conda/bin/jupyter notebook \
 #    --allow-root \
