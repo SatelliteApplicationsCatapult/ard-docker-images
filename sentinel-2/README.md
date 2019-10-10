@@ -1,17 +1,27 @@
 # ARD Workflow Container for Sentinel-2 Datasets
 
-## Base image
-The provided [Dockerfile](Dockerfile) creates a Docker image with an ARD workflow for Sentinel-2 datasets set up by means of Miniconda v4.7.10.
-[Jupyter Notebook](https://jupyter.org/) can be optionally included and started once the Docker image is run.
-
 ## Docker Hub images
-Pre-built Docker images can be pulled from [our Docker Hub repo](https://hub.docker.com/r/satapps/).
+Pre-built Docker images for production use can be pulled from [our Docker Hub repo](https://hub.docker.com/r/satapps/).
+
+## Dockerfile for development
+The provided [Dockerfile](Dockerfile) creates a Docker image with an ARD workflow for Sentinel-2 datasets, set up by means of Miniconda v4.7.10. [Jupyter Notebook](https://jupyter.org/) is included for interactive development and started once the Docker image is run.
 
 ## Docker Compose
-A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance.\
-To use it you can issue, for example for 3 worker containers:
+A [Docker Compose](docker-compose.yml) example file is provided to set up an interactive ARD workflow instance for development purposes.
 
-```docker-compose up -d```
+### Environment variables for Docker Compose
+Environment variables can be set in a `.env` file for Docker Compose. You might use [.env.example](./.env.example) as a starting point. The [.gitignore](../.gitignore) file contains an entry for `.env` in order to avoid it from being accidentally added to this repository, so the `.env` file is suitable for storing sensitive information.
+
+### AWS access
+In order to be able to get/put data from/to S3, you need to ensure that the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are set.
+
+### Building and running a development platform
+A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance for development purposes. To use it you can issue:
+
+```
+docker-compose build
+docker-compose up -d
+```
 
 Once the above completes, the job queue is ready to be filled in with work items by issuing:
 
@@ -35,15 +45,9 @@ EOF
 
 At any time afterwards, the queue can be processed interactively by running the [worker](worker-s2.ipynb) Jupyter Notebook.
 
-## Environment variables for Docker Compose
-Environment variables can be set in a `.env` file for Docker Compose. You might use [.env.example](./.env.example) as a starting point. The [.gitignore](../.gitignore) file contains an entry for `.env` in order to avoid it from being accidentally added to this repository, so the `.env` file is suitable for storing sensitive information.
-
-## AWS access
-In order to be able to get/put data from/to S3, you need to ensure that the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are set.
-
-## Jupyter Notebook
+### Jupyter Notebook
 Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8888.\
-For the access token, check the CMD statement within the [Dockerfile](Dockerfile).
+The access token is `secretpassword`, which is set by means of the CMD statement within the [Dockerfile](Dockerfile).
 
 ## TODO
 - Define the `PLATFORM` and `QUEUE_NAME` environment variables, so these can be set to `SENTINEL_2` and `jobS2` respectively, making the worker code agnostic of the satellite/platform to work on
