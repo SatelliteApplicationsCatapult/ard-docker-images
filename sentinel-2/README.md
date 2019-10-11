@@ -19,7 +19,6 @@ In order to be able to get/put data from/to S3, you need to ensure that the envi
 A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance for development purposes. To use it you can issue:
 
 ```
-docker-compose build
 docker-compose up -d
 ```
 
