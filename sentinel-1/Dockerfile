@@ -57,13 +57,14 @@ RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_
 # ------------------------------------------
 
 RUN conda install --quiet --yes --freeze-installed \
-    jupyter \
+    jupyterlab \
+    notebook \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-CMD jupyter notebook \
+CMD jupyter lab \
     --allow-root \
     --notebook-dir=/opt/notebooks \
     --NotebookApp.ip='0.0.0.0' \
