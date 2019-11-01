@@ -37,8 +37,6 @@ RUN pip install --no-cache-dir \
 
 #COPY workflows /opt/notebooks
 
-#COPY rediswq.py /opt/notebooks
-
 #CMD jupyter notebook \
 #    --allow-root \
 #    --notebook-dir=/opt/notebooks \

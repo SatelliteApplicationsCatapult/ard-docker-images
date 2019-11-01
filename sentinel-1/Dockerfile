@@ -42,8 +42,6 @@ RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_
 
 #COPY workflows /opt/notebooks
 
-#COPY rediswq.py /opt/notebooks
-
 #CMD jupyter notebook \
 #    --allow-root \
 #    --notebook-dir=/opt/notebooks \
