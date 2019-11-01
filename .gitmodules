@@ -6,4 +6,4 @@
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "landsat-8/workflows"]
 	path = landsat-8/workflows
-	url = https://tjones1993@github.com/SatelliteApplicationsCatapult/ard-workflows.git
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
