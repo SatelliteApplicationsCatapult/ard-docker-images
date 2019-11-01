@@ -1,5 +1,4 @@
 data
 redisdata
-workflows
 .env
 docker-compose.yml
