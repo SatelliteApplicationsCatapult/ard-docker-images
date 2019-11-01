@@ -5,7 +5,7 @@ services:
     image: redis
     container_name: redis-master
     ports:
-      - "6379:6379"
+      - "6378:6379"
     restart: always
     command: redis-server --appendonly yes
     volumes:
@@ -19,11 +19,13 @@ services:
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - ASF_USERNAME=${ASF_USERNAME}
       - ASF_PWD=${ASF_PWD}
+      - COPERNICUS_USERNAME=${COPERNICUS_USERNAME}
+      - COPERNICUS_PWD=${COPERNICUS_PWD}
       - S1_PROCESS_P1=${S1_PROCESS_P1}
       - S1_PROCESS_P2=${S1_PROCESS_P2}
       - SNAP_GPT=${SNAP_GPT}
     ports:
-      - "8888:8888"
+      - "8866:8888"
     volumes:
       - ./data:/tmp/data
       - ./workflows:/opt/notebooks

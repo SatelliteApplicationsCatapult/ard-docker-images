@@ -1,18 +1,18 @@
-FROM continuumio/miniconda3:4.7.10
+FROM continuumio/miniconda3:4.7.10-alpine
 
 LABEL maintainer="Luigi Di Fraia"
 
-RUN conda install --quiet --yes --freeze-installed \
+RUN cd $HOME && /opt/conda/bin/conda install --quiet --yes --freeze-installed \
     boto3 \
     geopandas \
     pyyaml \
     rasterio \
-    && conda clean --all -f -y \
+    && /opt/conda/bin/conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-RUN pip install --no-cache-dir \
+RUN /opt/conda/bin/pip install --no-cache-dir \
     google-cloud-storage \
     redis \
     sentinelsat
@@ -38,9 +38,9 @@ RUN pip install --no-cache-dir \
 
 # ------------------------------------------
 
-#RUN conda install --quiet --yes --freeze-installed \
+#RUN cd $HOME && /opt/conda/bin/conda install --quiet --yes --freeze-installed \
 #    jupyter \
-#    && conda clean --all -f -y \
+#    && /opt/conda/bin/conda clean --all -f -y \
 #    && find /opt/conda/ -follow -type f -name '*.a' -delete \
 #    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
 #    && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
@@ -52,7 +52,7 @@ RUN pip install --no-cache-dir \
 
 #COPY worker-s2.ipynb /opt/notebooks
 
-#CMD jupyter notebook \
+#CMD /opt/conda/bin/jupyter notebook \
 #    --allow-root \
 #    --notebook-dir=/opt/notebooks \
 #    --NotebookApp.ip='0.0.0.0' \
@@ -62,15 +62,14 @@ RUN pip install --no-cache-dir \
 
 # ------------------------------------------
 
-RUN conda install --quiet --yes --freeze-installed \
-    jupyterlab \
-    notebook \
-    && conda clean --all -f -y \
+RUN cd $HOME && /opt/conda/bin/conda install --quiet --yes --freeze-installed \
+    jupyter \
+    && /opt/conda/bin/conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-CMD jupyter lab \
+CMD /opt/conda/bin/jupyter notebook \
     --allow-root \
     --notebook-dir=/opt/notebooks \
     --NotebookApp.ip='0.0.0.0' \
@@ -78,4 +77,3 @@ CMD jupyter lab \
     --NotebookApp.token='secretpassword' \
     --NotebookApp.open_browser='False'
 
-RUN apt-get update && apt-get install -y curl

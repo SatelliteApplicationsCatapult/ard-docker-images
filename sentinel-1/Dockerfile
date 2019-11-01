@@ -72,3 +72,4 @@ CMD jupyter lab \
     --NotebookApp.token='secretpassword' \
     --NotebookApp.open_browser='False'
 
+RUN apt-get update && apt-get install -y curl
