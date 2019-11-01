@@ -50,8 +50,6 @@ RUN pip install --no-cache-dir \
 
 #COPY rediswq.py /opt/notebooks
 
-#COPY worker-s2.ipynb /opt/notebooks
-
 #CMD jupyter notebook \
 #    --allow-root \
 #    --notebook-dir=/opt/notebooks \
