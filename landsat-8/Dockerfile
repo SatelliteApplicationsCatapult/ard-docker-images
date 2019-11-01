@@ -39,7 +39,7 @@ RUN pip install --no-cache-dir \
 
 #COPY rediswq.py /opt/notebooks
 
-#COPY worker-LS.ipynb /opt/notebooks
+#COPY workflows/worker-LS.ipynb /opt/notebooks
 
 #CMD jupyter notebook \
 #    --allow-root \
