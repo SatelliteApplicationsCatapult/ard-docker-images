@@ -15,24 +15,15 @@ RUN conda install --quiet --yes --freeze-installed \
 RUN pip install --no-cache-dir \
     redis 
 
-#RUN wget --quiet http://step.esa.int/thirdparties/sen2cor/2.8.0/Sen2Cor-02.08.00-Linux64.run && \
-#    /bin/sh ./Sen2Cor-02.08.00-Linux64.run && \
-#    rm ./Sen2Cor-02.08.00-Linux64.run
-
-#RUN apt-get install -y --no-install-recommends xmlstarlet && \
-#    rm -rf /var/lib/apt/lists/*
-
-#RUN xmlstarlet edit -L -u "//Downsample_20_to_60" -v "FALSE" $HOME/sen2cor/2.8/cfg/L2A_GIPP.xml
-
 # ------------------------------------------
 
 #COPY workflows/utils /utils
 
-#COPY worker-s2.py /worker-s2.py
+#COPY worker-ls.py /worker-ls.py
 
 #COPY rediswq.py /rediswq.py
 
-#CMD [ "python", "worker-s2.py" ]
+#CMD [ "python", "worker-ls.py" ]
 
 # ------------------------------------------
 
@@ -48,7 +39,7 @@ RUN pip install --no-cache-dir \
 
 #COPY rediswq.py /opt/notebooks
 
-#COPY worker-s2.ipynb /opt/notebooks
+#COPY worker-ls.ipynb /opt/notebooks
 
 #CMD jupyter notebook \
 #    --allow-root \
@@ -68,6 +59,9 @@ RUN conda install --quiet --yes --freeze-installed \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
+RUN apt-get install -y --no-install-recommends curl && \
+    rm -rf /var/lib/apt/lists/*
+
 CMD jupyter lab \
     --allow-root \
     --notebook-dir=/opt/notebooks \
@@ -76,4 +70,3 @@ CMD jupyter lab \
     --NotebookApp.token='secretpassword' \
     --NotebookApp.open_browser='False'
 
-RUN apt-get update && apt-get install -y curl
