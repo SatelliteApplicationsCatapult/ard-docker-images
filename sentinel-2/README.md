@@ -45,7 +45,7 @@ EOF
 At any time afterwards, the queue can be processed interactively by running the [worker](worker-s2.ipynb) Jupyter Notebook.
 
 ### Jupyter Notebook
-Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8888.\
+Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8877.\
 The access token is `secretpassword`, which is set by means of the CMD statement within the [Dockerfile](Dockerfile).
 
 ## TODO
