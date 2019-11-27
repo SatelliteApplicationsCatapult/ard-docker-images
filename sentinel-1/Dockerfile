@@ -7,6 +7,7 @@ RUN conda install --quiet --yes --freeze-installed \
     geopandas \
     pyyaml \
     rasterio \
+    asynchronousfilereader \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
