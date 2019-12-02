@@ -13,6 +13,7 @@ RUN conda install --quiet --yes --freeze-installed \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
 RUN pip install --no-cache-dir \
+    asynchronousfilereader \
     redis
 
 RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_unix_7_0.sh \

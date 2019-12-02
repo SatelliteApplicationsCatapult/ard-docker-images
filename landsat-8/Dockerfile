@@ -13,6 +13,7 @@ RUN conda install --quiet --yes --freeze-installed \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
 RUN pip install --no-cache-dir \
+    asynchronousfilereader \
     redis 
 
 # ------------------------------------------

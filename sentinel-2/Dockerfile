@@ -14,6 +14,7 @@ RUN conda install --quiet --yes --freeze-installed \
 
 RUN pip install --no-cache-dir \
     google-cloud-storage \
+    asynchronousfilereader \
     redis \
     sentinelsat
 
