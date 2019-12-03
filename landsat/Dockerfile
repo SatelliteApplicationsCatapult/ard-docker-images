@@ -56,9 +56,6 @@ RUN conda install --quiet --yes --freeze-installed \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-RUN apt-get install -y --no-install-recommends curl && \
-    rm -rf /var/lib/apt/lists/*
-
 CMD jupyter lab \
     --allow-root \
     --notebook-dir=/opt/notebooks \
