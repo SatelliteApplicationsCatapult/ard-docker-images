@@ -42,7 +42,7 @@ rpush jobS2 '{"in_scene": "S2A_MSIL2A_20190812T235741_N0213_R030_T56LRR_20190813
 EOF
 ```
 
-At any time afterwards, the queue can be processed interactively by running the [worker](worker-s2.ipynb) Jupyter Notebook.
+At any time afterwards, the queue can be processed interactively by running the worker Jupyter Notebook.
 
 ### Jupyter Notebook
 Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8877.\
