@@ -4,6 +4,6 @@
 [submodule "sentinel-1/workflows"]
 	path = sentinel-1/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
-[submodule "landsat-8/workflows"]
-	path = landsat-8/workflows
+[submodule "landsat/workflows"]
+	path = landsat/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
