@@ -4,16 +4,6 @@ LABEL maintainer="Luigi Di Fraia"
 
 RUN apt-get update && apt-get install -y build-essential libgdal-dev
 
-RUN conda install --quiet --yes --freeze-installed \
-    boto3 \
-    geopandas \
-    pyyaml \
-    rasterio \
-    && conda clean --all -f -y \
-    && find /opt/conda/ -follow -type f -name '*.a' -delete \
-    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
-    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
-
 RUN pip install --no-cache-dir \
     asynchronousfilereader \
     xmltodict \
@@ -23,6 +13,16 @@ RUN pip install --no-cache-dir \
     GDAL==2.4.0 \
     matplotlib \
     redis
+
+RUN conda install --quiet --yes --freeze-installed \
+    boto3 \
+    geopandas \
+    pyyaml \
+    rasterio \
+    && conda clean --all -f -y \
+    && find /opt/conda/ -follow -type f -name '*.a' -delete \
+    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
+    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
 RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_unix_7_0.sh \
     && /bin/sh ./esa-snap_sentinel_unix_7_0.sh -q \
