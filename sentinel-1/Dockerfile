@@ -14,6 +14,12 @@ RUN conda install --quiet --yes --freeze-installed \
 
 RUN pip install --no-cache-dir \
     asynchronousfilereader \
+    xmltodict \
+    scipy \
+    numpy \
+    pyproj==1.9.6 \
+    GDAL==2.4.0 \
+    matplotlib \
     redis
 
 RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_unix_7_0.sh \
