@@ -2,6 +2,8 @@ FROM continuumio/miniconda3:4.7.10
 
 LABEL maintainer="Luigi Di Fraia"
 
+RUN apt-get update && apt-get install -y build-essential libgdal-dev
+
 RUN conda install --quiet --yes --freeze-installed \
     boto3 \
     geopandas \
@@ -75,4 +77,4 @@ CMD jupyter lab \
     --NotebookApp.token='secretpassword' \
     --NotebookApp.open_browser='False'
 
-RUN apt-get update && apt-get install -y curl
+
