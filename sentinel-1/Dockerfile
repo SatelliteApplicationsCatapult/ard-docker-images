@@ -16,6 +16,7 @@ RUN pip install --no-cache-dir \
 
 RUN conda install --quiet --yes --freeze-installed \
     boto3 \
+    pyproj==1.9.6 \
     geopandas \
     pyyaml \
     rasterio \
