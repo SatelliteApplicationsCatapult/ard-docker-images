@@ -9,14 +9,13 @@ RUN pip install --no-cache-dir \
     xmltodict \
     scipy \
     numpy \
-    pyproj==1.9.6 \
+    pyproj \
     GDAL==2.4.0 \
     matplotlib \
     redis
 
 RUN conda install --quiet --yes --freeze-installed \
     boto3 \
-    pyproj==1.9.6 \
     geopandas \
     pyyaml \
     rasterio \
