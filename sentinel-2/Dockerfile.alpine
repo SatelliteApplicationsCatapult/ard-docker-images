@@ -66,12 +66,6 @@ RUN cd $HOME && /opt/conda/bin/conda install --quiet --yes --freeze-installed \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-USER root
-
-RUN apk add --no-cache curl
-
-USER 10151
-
 CMD /opt/conda/bin/jupyter lab \
     --allow-root \
     --notebook-dir=/opt/notebooks \
