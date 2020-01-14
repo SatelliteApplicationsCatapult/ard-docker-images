@@ -18,9 +18,9 @@ RUN pip install --no-cache-dir \
     redis \
     sentinelsat
 
-#RUN wget --quiet http://step.esa.int/thirdparties/sen2cor/2.8.0/Sen2Cor-02.08.00-Linux64.run && \
-#    /bin/sh ./Sen2Cor-02.08.00-Linux64.run && \
-#    rm ./Sen2Cor-02.08.00-Linux64.run
+RUN wget --quiet http://step.esa.int/thirdparties/sen2cor/2.8.0/Sen2Cor-02.08.00-Linux64.run && \
+    /bin/sh ./Sen2Cor-02.08.00-Linux64.run && \
+    rm ./Sen2Cor-02.08.00-Linux64.run
 
 #RUN apt-get install -y --no-install-recommends xmlstarlet && \
 #    rm -rf /var/lib/apt/lists/*
