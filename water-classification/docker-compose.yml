@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  redis-master:
+    image: redis
+    container_name: redis-master
+    ports:
+      - "6379:6379"
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redisdata:/data
+  
+  jupyter-worker:
+    build: .
+    #image: satapps/ard-workflow-ls-jupyter:0.8.0-alpine
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    ports:
+      - "8855:8888"
+    volumes:
+      - ./data:/tmp/data
+      - ./workflows:/opt/notebooks
+    restart: always

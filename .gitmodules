@@ -7,3 +7,6 @@
 [submodule "landsat/workflows"]
 	path = landsat/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "water-classification/workflows"]
+	path = water-classification/workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
