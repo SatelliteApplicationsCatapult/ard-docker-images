@@ -26,11 +26,11 @@ RUN pip install --no-cache-dir \
 
 #COPY workflows/utils /utils
 
-#COPY worker-LS.py /worker-LS.py
+#COPY worker-Water.py /worker-Water.py
 
 #COPY rediswq.py /rediswq.py
 
-#CMD [ "python", "worker-LS.py" ]
+#CMD [ "python", "worker-Water.py" ]
 
 # ------------------------------------------
 
