@@ -13,7 +13,7 @@ services:
   
   jupyter-worker:
     build: .
-    #image: satapps/ard-workflow-water-classification:v1.0.0
+    #image: satapps/ard-workflow-water-classification:1.0.0
     environment:
       - LOGLEVEL=ERROR
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
