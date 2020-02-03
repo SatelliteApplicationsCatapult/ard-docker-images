@@ -15,6 +15,7 @@ services:
     build: .
     #image: satapps/ard-workflow-s2-jupyter:0.6.0
     environment:
+      - LOGLEVEL=ERROR
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - COPERNICUS_USERNAME=${COPERNICUS_USERNAME}
