@@ -57,21 +57,21 @@ Create a ConfigMap using the contents of the `work-items.list`:
 ```
 NAMESPACE=ard # This needs to be the namespace used to deploy the Redis server and ARD processing workers
 
-kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./work-items.list 
+~/ard-docker-images/job-insert$ kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./work-items.list 
 ```
 
 Create the job insert Pod using the provided [job-inserter.yaml](job-inserter.yaml) file:
 
 ```
-sed -i "s/namespace:.*/namespace: $NAMESPACE/" job-inserter.yaml
+~/ard-docker-images/job-insert$ sed -i "s/namespace:.*/namespace: $NAMESPACE/" job-inserter.yaml
 
-kubectl apply -f ./job-inserter.yaml
+~/ard-docker-images/job-insert$ kubectl apply -f ./job-inserter.yaml
 ```
 
 Show log for the Pod:
 
 ```
-kubectl logs job-inserter -n $NAMESPACE
+~/ard-docker-images/job-insert$ kubectl logs job-inserter -n $NAMESPACE
 
 Welcome to the Bitnami redis container
 Subscribe to project updates by watching https://github.com/bitnami/bitnami-docker-redis
@@ -101,8 +101,8 @@ errors: 0, replies: 1827
 ### Using Kubernetes
 
 ```
-kubectl delete configmap ard-work-items --namespace=$NAMESPACE
-kubectl delete -f ./job-inserter.yaml
+~/ard-docker-images/job-insert$ kubectl delete configmap ard-work-items --namespace=$NAMESPACE
+~/ard-docker-images/job-insert$ kubectl delete -f ./job-inserter.yaml
 ```
 
 ## TODO
