@@ -1,6 +1,6 @@
 # Job insertion Docker image
 
-Used to insert job definitions into the Redis server used to process ARD campaigns.
+Docker image that inserts job definitions into the Redis server used to process ARD campaigns.
 
 ## Usage example
 
@@ -44,6 +44,22 @@ job-inserter    | All data transferred. Waiting for the last reply...
 job-inserter    | Last reply received from server.
 job-inserter    | errors: 0, replies: 1827
 job-inserter exited with code 0
+```
+
+### Using Kubernetes
+
+Create a ConfigMap first:
+
+```
+kubectl create configmap <TBD> <TBD>
+```
+
+Execute the Docker image with kubectl:
+
+```
+NAMESPACE=ard
+
+TBD
 ```
 
 ### Cleaning up
