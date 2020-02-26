@@ -48,18 +48,34 @@ job-inserter exited with code 0
 
 ### Using Kubernetes
 
-Create a ConfigMap first:
-
-```
-kubectl create configmap <TBD> <TBD>
-```
-
-Execute the Docker image with kubectl:
+Create a ConfigMap using the contents of the `work-items.list`:
 
 ```
 NAMESPACE=ard
 
-TBD
+kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./work-items.list 
+```
+
+Create the job insert Pod:
+
+```
+kubectl apply -f ./job-inserter.yaml
+```
+
+Show log for the Pod:
+
+```
+kubectl logs job-inserter -n $NAMESPACE
+
+Welcome to the Bitnami redis container
+Subscribe to project updates by watching https://github.com/bitnami/bitnami-docker-redis
+Submit issues and feature requests at https://github.com/bitnami/bitnami-docker-redis/issues
+Send us your feedback at containers@bitnami.com
+
+
+All data transferred. Waiting for the last reply...
+Last reply received from server.
+errors: 0, replies: 1827
 ```
 
 ### Cleaning up
@@ -74,4 +90,11 @@ Using Docker Compose:
 
 ```
 ~/ard-docker-images/job-insert$ docker-compose down
+```
+
+Using Kubernetes:
+
+```
+kubectl delete configmap ard-work-items --namespace=$NAMESPACE
+kubectl delete -f ./job-inserter.yaml
 ```
