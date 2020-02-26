@@ -4,7 +4,7 @@ services:
   redis-client:
     image: satapps/ard-workflow-job-insert:1.1.0
     container_name: job-inserter
-    restart: on-failure
+    restart: on-failure:3
     networks:
       - landsat_default
     volumes:
