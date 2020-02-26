@@ -108,9 +108,10 @@ $ kubectl delete -f ./job-inserter.yaml
 ## TODO
 - In [job-inserter.yaml](job-inserter.yaml) use an [initContainer](https://kubernetes.io/docs/concepts/workloads/pods/init-containers) in order to make sure the redis-master service is up before attempting to connect. E.g.:
     ```
-    initContainers:
-    - name: init-job-inserter
-      image: busybox:1.28
-      command: ['sh', '-c', 'until nslookup redis-master; do echo waiting for redis-master; sleep 2; done;']
+    spec:
+      initContainers:
+      - name: init-job-inserter
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup redis-master; do echo waiting for redis-master; sleep 2; done;']
     ```
 - Define a Helm chart for templating and value substitution
