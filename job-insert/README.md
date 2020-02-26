@@ -11,7 +11,7 @@ Find below examples to insert 1827 Landsat jobs from the `work-items.list` file.
 Run the job insert image directly with a bind mount:
 
 ```
-~/ard-docker-images/job-insert$ docker run \
+$ docker run \
   -it \
   --name job-inserter \
   --mount type=bind,source="$(pwd)"/work-items.list,target=/var/opt/work-items.list \
@@ -34,7 +34,7 @@ errors: 0, replies: 1827
 Use the provided [docker-compose.yaml](docker-compose.yaml) file:
 
 ```
-~/ard-docker-images/job-insert$ docker-compose up
+$ docker-compose up
 Recreating job-inserter ... done
 Attaching to job-inserter
 job-inserter    |
