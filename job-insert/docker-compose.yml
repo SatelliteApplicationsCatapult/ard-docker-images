@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  redis-client:
+    image: satapps/ard-workflow-job-insert:1.1.0
+    container_name: job-inserter
+    restart: on-failure
+    networks:
+      - landsat_default
+    volumes:
+      - ./work-items.list:/var/opt/work-items.list
+
+networks:
+  landsat_default:
+    external: true
