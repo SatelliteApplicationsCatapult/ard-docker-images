@@ -55,7 +55,7 @@ job-inserter exited with code 0
 Create a ConfigMap using the contents of the `work-items.list`:
 
 ```
-NAMESPACE=ard
+NAMESPACE=ard # This needs to be the namespace used to deploy the Redis server and ARD processing workers
 
 kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./work-items.list 
 ```
@@ -63,6 +63,8 @@ kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./wor
 Create the job insert Pod using the provided [job-inserter.yaml](job-inserter.yaml) file:
 
 ```
+sed -i "s/namespace:.*/namespace: $NAMESPACE/" job-inserter.yaml
+
 kubectl apply -f ./job-inserter.yaml
 ```
 
@@ -102,3 +104,6 @@ errors: 0, replies: 1827
 kubectl delete configmap ard-work-items --namespace=$NAMESPACE
 kubectl delete -f ./job-inserter.yaml
 ```
+
+## TODO
+- Define a Helm chart for templating and value substitution
