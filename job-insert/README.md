@@ -2,11 +2,13 @@
 
 Docker image that inserts job definitions into the Redis server used to process ARD campaigns.
 
-## Usage example
+## Usage examples
 
-### Execution of the job insert process
+Find below examples to insert 1827 Landsat jobs from the `work-items.list` file.
 
-Inserting 1827 Landsat jobs from `work-items.list` using Docker:
+### Using Docker
+
+Run the job insert image directly with a bind mount:
 
 ```
 ~/ard-docker-images/job-insert$ docker run \
@@ -27,7 +29,9 @@ Last reply received from server.
 errors: 0, replies: 1827
 ```
 
-Using Docker Compose:
+### Using Docker Compose
+
+Use the provided [docker-compose.yaml](docker-compose.yaml) file:
 
 ```
 ~/ard-docker-images/job-insert$ docker-compose up
@@ -56,7 +60,7 @@ NAMESPACE=ard
 kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./work-items.list 
 ```
 
-Create the job insert Pod:
+Create the job insert Pod using the provided [job-inserter.yaml](job-inserter.yaml) file:
 
 ```
 kubectl apply -f ./job-inserter.yaml
@@ -78,21 +82,21 @@ Last reply received from server.
 errors: 0, replies: 1827
 ```
 
-### Cleaning up
+## Cleaning up examples
 
-Using Docker:
+### Using Docker
 
 ```
 ~/ard-docker-images/job-insert$ docker rm job-inserter
 ```
 
-Using Docker Compose:
+### Using Docker Compose
 
 ```
 ~/ard-docker-images/job-insert$ docker-compose down
 ```
 
-Using Kubernetes:
+### Using Kubernetes
 
 ```
 kubectl delete configmap ard-work-items --namespace=$NAMESPACE
