@@ -8,6 +8,10 @@ spec:
     - name: ard-work-items
       configMap:
         name: ard-work-items
+  initContainers:
+    - name: init-job-inserter
+      image: busybox:1.28
+      command: ['sh', '-c', 'until nc -z redis-master 6379; do sleep 2; done;']
   containers:
     - name: job-inserter
       image: satapps/ard-workflow-job-insert:1.1.0
