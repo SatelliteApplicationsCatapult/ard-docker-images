@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: job-inserter
+  namespace: ard
+spec:
+  volumes:
+    - name: ard-work-items
+      configMap:
+        name: ard-work-items
+  containers:
+    - name: job-inserter
+      image: satapps/ard-workflow-job-insert:1.1.0
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: ard-work-items
+          mountPath: /var/opt/work-items.list
+          subPath: work-items.list
+  restartPolicy: Never
