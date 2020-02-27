@@ -58,7 +58,7 @@ Set up environment variables as per [Redis Master server deployment](https://git
 ```
 $ NAMESPACE=ard # This needs to be the namespace used to deploy the Redis server and ARD processing workers
 
-$ RELEASEREDIS=redis # This needs to be the release name used to deploy the Redis server
+$ RELEASEREDIS=redis # This needs to be the release name used to deploy the Redis Master server
 ```
 
 Create a ConfigMap using the contents of the `work-items.list`:
