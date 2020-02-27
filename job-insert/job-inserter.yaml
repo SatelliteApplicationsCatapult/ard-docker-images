@@ -11,11 +11,17 @@ spec:
   initContainers:
     - name: init-job-inserter
       image: busybox:1.28
-      command: ['sh', '-c', 'until nslookup redis-master; do echo Waiting for redis-master; sleep 2; done;']
+      env:
+        - name: REDIS_SERVICE
+          value: "redis-master"
+      command: ['sh', '-c', 'until nslookup $REDIS_SERVICE; do echo Waiting for redis-master; sleep 2; done;']
   containers:
     - name: job-inserter
-      image: satapps/ard-workflow-job-insert:1.1.0
+      image: satapps/ard-workflow-job-insert:1.1.1
       imagePullPolicy: IfNotPresent
+      env:
+        - name: REDIS_SERVICE
+          value: "redis-master"
       volumeMounts:
         - name: ard-work-items
           mountPath: /var/opt/work-items.list

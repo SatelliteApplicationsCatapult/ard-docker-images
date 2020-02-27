@@ -14,6 +14,7 @@ Run the job insert image directly with a bind mount:
 $ docker run \
   -it \
   --name job-inserter \
+  -e REDIS_SERVICE \
   --mount type=bind,source="$(pwd)"/work-items.list,target=/var/opt/work-items.list \
   --network=landsat_default \
   satapps/ard-workflow-job-insert:1.1.0
@@ -55,7 +56,8 @@ job-inserter exited with code 0
 Create a ConfigMap using the contents of the `work-items.list`:
 
 ```
-$ export NAMESPACE=ard # This needs to be the namespace used to deploy the Redis server and ARD processing workers
+$ NAMESPACE=ard # This needs to be the namespace used to deploy the Redis server and ARD processing workers
+$ RELEASEREDIS=redis # This needs to be the release name used to deploy the Redis server
 
 $ kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./work-items.list 
 ```
@@ -65,10 +67,15 @@ Create the job insert Pod using the provided [job-inserter.yaml](job-inserter.ya
 ```
 $ sed -i "s/namespace:.*/namespace: $NAMESPACE/" job-inserter.yaml
 
+$ if [ ! "${RELEASEREDIS}" = "redis" ]; then
+  REDIS_SERVICE=${RELEASEREDIS}-redis-master
+  sed -i "s/redis-master/${REDIS_SERVICE}/g" job-inserter.yaml
+fi
+
 $ kubectl apply -f ./job-inserter.yaml
 ```
 
-Show log for the Pod:
+Show log from the Pod:
 
 ```
 $ kubectl logs job-inserter -n $NAMESPACE
