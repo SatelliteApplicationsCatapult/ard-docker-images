@@ -12,7 +12,7 @@ Login to docker.io:
 docker login docker.io
 ```
 
-Build and upload
+Build and upload:
 
 ```
 VERSION=1.1.1
