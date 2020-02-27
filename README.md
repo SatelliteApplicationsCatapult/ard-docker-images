@@ -32,4 +32,4 @@ docker push satapps/ard-workflow-s2:${VERSION}
 cd ../water-classification
 docker build . -f Dockerfile.dist -t satapps/ard-workflow-water-classification:${VERSION}
 docker push satapps/ard-workflow-water-classification:${VERSION}
-
+```
