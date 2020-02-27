@@ -22,17 +22,14 @@ docker build . -f Dockerfile.dist -t satapps/ard-workflow-ls:${VERSION}
 docker push satapps/ard-workflow-ls:${VERSION}
 
 cd ../sentinel-1
-
 docker build . -f Dockerfile.dist -t satapps/ard-workflow-s1:${VERSION}
 docker push satapps/ard-workflow-s1:${VERSION}
 
 cd ../sentinel-2
-
 docker build . -f Dockerfile.dist -t satapps/ard-workflow-s2:${VERSION}
 docker push satapps/ard-workflow-s2:${VERSION}
 
 cd ../water-classification
-
 docker build . -f Dockerfile.dist -t satapps/ard-workflow-water-classification:${VERSION}
 docker push satapps/ard-workflow-water-classification:${VERSION}
 
