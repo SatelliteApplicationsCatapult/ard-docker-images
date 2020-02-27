@@ -106,4 +106,5 @@ $ kubectl delete -f ./job-inserter.yaml
 ```
 
 ## TODO
+- Allowing users to configure the service name for Redis as it can be changed at deployment time via Helm
 - Define a Helm chart for templating and value substitution
