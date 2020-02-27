@@ -6,6 +6,12 @@ Docker images to deploy ARD workflows. Clone this repository using the `--recurs
 
 ## Building and pushing to Docker Hub
 
+### Automated builds
+
+In the long run Docker images will be automatically built from this repo.
+
+### Manual builds
+
 Login to docker.io:
 
 ```
