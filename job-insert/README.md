@@ -53,12 +53,17 @@ job-inserter exited with code 0
 
 ### Using Kubernetes
 
-Create a ConfigMap using the contents of the `work-items.list`:
+Set up environment variables as per [Redis Master server deployment](https://github.com/SatelliteApplicationsCatapult/helm-charts/tree/master/stable/ard-campaign#redis-master-server-deployment):
 
 ```
 $ NAMESPACE=ard # This needs to be the namespace used to deploy the Redis server and ARD processing workers
-$ RELEASEREDIS=redis # This needs to be the release name used to deploy the Redis server
 
+$ RELEASEREDIS=redis # This needs to be the release name used to deploy the Redis server
+```
+
+Create a ConfigMap using the contents of the `work-items.list`:
+
+```
 $ kubectl create configmap ard-work-items --namespace=$NAMESPACE --from-file ./work-items.list 
 ```
 
