@@ -49,7 +49,6 @@ Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8877.\
 The access token is `secretpassword`, which is set by means of the CMD statement within the [Dockerfile](Dockerfile).
 
 ## TODO
-- Use the value of `REDIS_SERVICE_HOST` to connect from the worker to the Redis Master server, instead of just `redis-master`
 - Define the `PLATFORM` and `QUEUE_NAME` environment variables, so these can be set to `SENTINEL_2` and `jobS2` respectively, making the worker code agnostic of the satellite/platform to work on
 - Define the `LEASE_SECS` and `TIMEOUT` environment variables, so these can be set according to what is appropriate for the satellite/platform to work on; alternatively read defaults from a configuration file that can be provided as an `env_file` in Docker Compose or as a `ConfigMap` in Kubernetes
 - Generate a single Docker image: Jupyter Notebook could be optionally installed upon deployment, based on an environment variable, e.g. `JUPYTER_NOTEBOOK` set to `YES`; the main drawback of doing so (compared to building separate Docker images) is that dependencies might fail to support the installation of Jupyter Notebook 
