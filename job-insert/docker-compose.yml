@@ -8,7 +8,7 @@ services:
     networks:
       - landsat_default
     environment:
-      - REDIS_SERVICE
+      - REDIS_SERVICE_HOST
     volumes:
       - ./work-items.list:/var/opt/work-items.list
 
