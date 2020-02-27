@@ -17,10 +17,8 @@ def process_scene(json_data):
 
 import rediswq
 
-host="redis-master"
-# Uncomment next two lines if you do not have Kube-DNS working.
-# import os
-# host = os.getenv("REDIS_SERVICE_HOST")
+import os
+host = os.getenv("REDIS_SERVICE_HOST", "redis-master")
 
 q = rediswq.RedisWQ(name="jobS2", host=host)
 print("Worker with sessionID: " +  q.sessionID())
