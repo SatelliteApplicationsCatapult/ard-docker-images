@@ -16,7 +16,7 @@ Environment variables can be set in a `.env` file for Docker Compose. You might 
 In order to be able to get/put data from/to S3, you need to ensure that the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are set.
 
 ### Building and running a development platform
-A [Docker Compose](docker-compose.yml) example file is provided to set up a fully functional ARD workflow instance for development purposes. To use it you can issue:
+Set up an ARD workflow instance by issuing:
 
 ```
 docker-compose up -d
