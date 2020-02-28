@@ -8,7 +8,7 @@ Docker images to deploy ARD workflows. Clone this repository using the `--recurs
 
 ### Automated builds
 
-Docker images are automatically built and published on [Docker Hub](https://hub.docker.com/u/satapps) from this repo when a release tag, x.y.z, is created.
+Docker images are automatically built and published to [Docker Hub](https://hub.docker.com/u/satapps) from this repo when a release tag, x.y.z, is created.
 
 ### Manual builds
 
