@@ -8,7 +8,7 @@ Docker images to deploy ARD workflows. Clone this repository using the `--recurs
 
 ### Automated builds
 
-In the long run Docker images will be automatically built from this repo.
+Docker images are automatically built and published on [Docker Hub](https://hub.docker.com/orgs/satapps/repositories) from this repo when a release tag, x.y.z, is created.
 
 ### Manual builds
 
@@ -21,7 +21,7 @@ docker login docker.io
 Build and upload:
 
 ```
-VERSION=1.1.1
+VERSION=1.2.1
 
 cd landsat
 docker build . -f Dockerfile.dist -t satapps/ard-workflow-ls:${VERSION}
