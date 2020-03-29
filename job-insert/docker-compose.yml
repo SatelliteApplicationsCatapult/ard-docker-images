@@ -2,7 +2,7 @@ version: '3'
 
 services:
   redis-client:
-    image: satapps/ard-workflow-job-insert:1.1.1
+    image: satapps/ard-workflow-job-insert:1.2.1
     container_name: job-inserter
     restart: on-failure:3
     networks:

@@ -17,7 +17,7 @@ $ docker run \
   -e REDIS_SERVICE_HOST \
   --mount type=bind,source="$(pwd)"/work-items.list,target=/var/opt/work-items.list \
   --network=landsat_default \
-  satapps/ard-workflow-job-insert:1.1.1
+  satapps/ard-workflow-job-insert:1.2.1
 
 Welcome to the Bitnami redis container
 Subscribe to project updates by watching https://github.com/bitnami/bitnami-docker-redis
