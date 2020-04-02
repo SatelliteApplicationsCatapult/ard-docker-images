@@ -10,3 +10,6 @@
 [submodule "water-classification/workflows"]
 	path = water-classification/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "mlwater-classification/.\\workflows"]
+	path = mlwater-classification/.\\workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
