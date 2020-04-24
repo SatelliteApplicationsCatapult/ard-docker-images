@@ -27,6 +27,8 @@ RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_
     && rm ./esa-snap_sentinel_unix_7_0.sh \
     && /opt/snap/bin/snap --nosplash --nogui --modules --update-all
 
+COPY gpt.vmoptions /opt/snap/bin/gpt.vmoptions
+
 # ------------------------------------------
 
 COPY workflows/utils /utils
