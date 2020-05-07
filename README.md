@@ -43,3 +43,9 @@ cd ../water-classification
 docker build . -f Dockerfile -t satapps/ard-workflow-water-classification:${VERSION}
 docker push satapps/ard-workflow-water-classification:${VERSION}
 ```
+
+## TODO
+
+- Define the `PLATFORM` and `QUEUE_NAME` environment variables, so these can be set to e.g. `SENTINEL_2` and `jobS2` respectively, making the worker code agnostic of the satellite/platform to work on
+- Define the `LEASE_SECS` and `TIMEOUT` environment variables, so these can be set according to what is appropriate for the satellite/platform to work on; alternatively read defaults from a configuration file that can be provided as a `ConfigMap` in Kubernetes
+- Evaluate the use of [RQ](https://python-rq.org/), [Celery](http://www.celeryproject.org/), or [pyres](https://github.com/binarydud/pyres) for implementing a more resilient work queue
