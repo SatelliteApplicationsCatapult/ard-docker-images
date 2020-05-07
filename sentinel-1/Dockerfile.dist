@@ -20,7 +20,8 @@ RUN conda install --quiet --yes --freeze-installed \
 
 RUN pip install --no-cache-dir \
     asynchronousfilereader \
-    redis
+    redis \
+    sentinelsat
 
 RUN wget --quiet http://step.esa.int/downloads/7.0/installers/esa-snap_sentinel_unix_7_0.sh \
     && /bin/sh ./esa-snap_sentinel_unix_7_0.sh -q \
