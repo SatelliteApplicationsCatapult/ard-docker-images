@@ -27,23 +27,16 @@ RUN conda install --quiet --yes --freeze-installed \
 RUN pip install --no-cache-dir \
     asynchronousfilereader \
     redis \
-	salem \
-	sklearn-xarray
+    salem \
+    sklearn-xarray
+
 # ------------------------------------------
 
-RUN conda install --quiet --yes --freeze-installed \
-    jupyterlab \
-    notebook \
-    && conda clean --all -f -y \
-    && find /opt/conda/ -follow -type f -name '*.a' -delete \
-    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
-    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
+COPY workflows/utils /utils
 
-CMD jupyter lab \
-    --allow-root \
-    --notebook-dir=/opt/notebooks \
-    --NotebookApp.ip='0.0.0.0' \
-    --NotebookApp.port='8877' \
-    --NotebookApp.token='secretpassword' \
-    --NotebookApp.open_browser='False'
+COPY worker-Water.py /worker-Water.py
+
+COPY rediswq.py /rediswq.py
+
+CMD [ "python", "worker-Water.py" ]
 
