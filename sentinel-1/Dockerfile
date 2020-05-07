@@ -32,19 +32,11 @@ COPY gpt.vmoptions /opt/snap/bin/gpt.vmoptions
 
 # ------------------------------------------
 
-RUN conda install --quiet --yes --freeze-installed \
-    jupyterlab \
-    notebook \
-    && conda clean --all -f -y \
-    && find /opt/conda/ -follow -type f -name '*.a' -delete \
-    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
-    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
+COPY workflows/utils /utils
 
-CMD jupyter lab \
-    --allow-root \
-    --notebook-dir=/opt/notebooks \
-    --NotebookApp.ip='0.0.0.0' \
-    --NotebookApp.port='8888' \
-    --NotebookApp.token='secretpassword' \
-    --NotebookApp.open_browser='False'
+COPY worker-s1.py /worker-s1.py
+
+COPY rediswq.py /rediswq.py
+
+CMD [ "python", "worker-s1.py" ]
 
