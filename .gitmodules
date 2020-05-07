@@ -13,3 +13,6 @@
 [submodule "mlwater-classification/workflows"]
 	path = mlwater-classification/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "sentinel-2-l1c/workflows"]
+	path = sentinel-2-l1c/workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
