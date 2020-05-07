@@ -17,7 +17,7 @@ spec:
       command: ['sh', '-c', 'until nslookup $REDIS_SERVICE_HOST; do echo Waiting for redis-master; sleep 2; done;']
   containers:
     - name: job-inserter
-      image: satapps/ard-workflow-job-insert:1.2.1
+      image: satapps/ard-workflow-job-insert:1.2.4
       imagePullPolicy: IfNotPresent
       env:
         - name: REDIS_SERVICE_HOST
