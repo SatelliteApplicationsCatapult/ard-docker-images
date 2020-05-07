@@ -1,4 +1,4 @@
-# Docker images to deploy ARD workflows with Docker and docker-compose
+# Docker images to deploy ARD workflows
 
 Docker images to deploy ARD workflows. Clone this repository using the `--recurse-submodules` flag in order to recurse into the workflow submodules.
 
