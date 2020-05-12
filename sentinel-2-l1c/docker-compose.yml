@@ -25,7 +25,7 @@ services:
       - COPERNICUS_PWD=${COPERNICUS_PWD}
       - SEN2COR_8=${SEN2COR_8}
     ports:
-      - "8877:8888"
+      - "8844:8888"
     volumes:
       - ./data:/tmp/data
       - ./workflows:/opt/notebooks
