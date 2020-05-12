@@ -44,6 +44,6 @@ CMD jupyter lab \
     --allow-root \
     --notebook-dir=/opt/notebooks \
     --NotebookApp.ip='0.0.0.0' \
-    --NotebookApp.port='8877' \
+    --NotebookApp.port='8888' \
     --NotebookApp.token='secretpassword' \
     --NotebookApp.open_browser='False'
