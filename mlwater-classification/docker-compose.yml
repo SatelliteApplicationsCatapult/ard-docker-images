@@ -15,7 +15,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile-devel
-    #image: satapps/ard-workflow-water-classification:1.2.1
     environment:
       #- LOGLEVEL=ERROR
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
