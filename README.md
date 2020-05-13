@@ -1,6 +1,6 @@
 # Docker images to deploy ARD workflows
 
-Docker images to deploy ARD workflows. Clone this repository using the `--recurse-submodules` flag in order to recurse into the workflow submodules.
+Docker images to deploy ARD workflows. Clone this repository using the `--recurse-submodules` flag in order to recurse into the workflow submodules. If you missed that bit, you can pull submodules after the facts with `git submodule update --init`.
 
 :warning: For production deployments (i.e. *campaigns*), please visit the [Helm Charts repo](https://github.com/SatelliteApplicationsCatapult/helm-charts) instead :warning:
 

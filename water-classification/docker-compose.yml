@@ -21,7 +21,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_S3_ENDPOINT_URL=${AWS_S3_ENDPOINT_URL}
     ports:
-      - "8888:8888"
+      - "8855:8888"
     volumes:
       - ./data:/tmp/data
       - ./workflows:/opt/notebooks

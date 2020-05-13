@@ -118,4 +118,4 @@ $ kubectl delete -f ./job-inserter.yaml
 ```
 
 ## TODO
-- Define a Helm chart for templating and value substitution
+- Define a Helm chart for templating and value substitution or add the job inserter to the existing [ard-campaign](https://github.com/SatelliteApplicationsCatapult/helm-charts/tree/master/stable/ard-campaign) Helm chart.
