@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  redis-master:
+    image: redis
+    container_name: redis-master
+    ports:
+      - "6379:6379"
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redisdata:/data
+  
+  jupyter-worker:
+    build:
+      context: ./
+      dockerfile: Dockerfile-devel
+    environment:
+      #- LOGLEVEL=ERROR
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_S3_ENDPOINT_URL=${AWS_S3_ENDPOINT_URL}
+    ports:
+      - "8855:8888"
+    volumes:
+      - ./data:/tmp/data
+      - ./workflows:/opt/notebooks
+    restart: always
