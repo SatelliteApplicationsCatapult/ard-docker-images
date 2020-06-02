@@ -19,6 +19,7 @@ RUN conda install --quiet --yes --freeze-installed \
     requests \
     scikit-learn \
     xarray \
+	dask \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
@@ -28,15 +29,16 @@ RUN pip install --no-cache-dir \
     asynchronousfilereader \
     redis \
     salem \
-    sklearn-xarray
+    sklearn-xarray \
+    rioxarray
 
 # ------------------------------------------
 
 COPY workflows/utils /utils
 
-COPY worker-Water.py /worker-Water.py
+COPY worker-MLWater.py /worker-MLWater.py
 
 COPY rediswq.py /rediswq.py
 
-CMD [ "python", "worker-Water.py" ]
+CMD [ "python", "worker-MLWater.py" ]
 
