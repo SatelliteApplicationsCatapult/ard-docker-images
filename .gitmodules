@@ -16,3 +16,6 @@
 [submodule "sentinel-2-l1c/workflows"]
 	path = sentinel-2-l1c/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "search-and-discovery/workflows"]
+	path = search-and-discovery/workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
