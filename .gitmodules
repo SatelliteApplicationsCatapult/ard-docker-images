@@ -19,3 +19,6 @@
 [submodule "search-and-discovery/workflows"]
 	path = search-and-discovery/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "modis-nbar/workflows"]
+	path = modis-nbar/workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
