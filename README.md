@@ -21,7 +21,7 @@ docker login docker.io
 Build and upload:
 
 ```
-VERSION=1.2.5
+VERSION=1.2.7
 
 cd landsat
 docker build . -f Dockerfile -t satapps/ard-workflow-ls:${VERSION}
@@ -42,6 +42,10 @@ docker push satapps/ard-workflow-s2-l1c:${VERSION}
 cd ../water-classification
 docker build . -f Dockerfile -t satapps/ard-workflow-water-classification:${VERSION}
 docker push satapps/ard-workflow-water-classification:${VERSION}
+
+cd ../mlwater-classification
+docker build . -f Dockerfile -t satapps/ard-workflow-ml-water-classification:${VERSION}
+docker push satapps/ard-workflow-ml-water-classification:${VERSION}
 ```
 
 ## TODO
