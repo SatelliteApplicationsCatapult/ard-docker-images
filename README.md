@@ -43,7 +43,7 @@ cd ../water-classification
 docker build . -f Dockerfile -t satapps/ard-workflow-water-classification:${VERSION}
 docker push satapps/ard-workflow-water-classification:${VERSION}
 
-cd ../ml-water-classification
+cd ../mlwater-classification
 docker build . -f Dockerfile -t satapps/ard-workflow-ml-water-classification:${VERSION}
 docker push satapps/ard-workflow-ml-water-classification:${VERSION}
 ```
