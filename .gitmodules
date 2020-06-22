@@ -22,3 +22,6 @@
 [submodule "modis-nbar/workflows"]
 	path = modis-nbar/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "sentinel-3-syn/workflows"]
+	path = sentinel-3-syn/workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
