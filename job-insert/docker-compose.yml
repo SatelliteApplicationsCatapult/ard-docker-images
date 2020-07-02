@@ -2,13 +2,13 @@ version: '3'
 
 services:
   redis-client:
-    image: satapps/ard-workflow-job-insert:1.2.4
+    image: satapps/ard-workflow-job-insert:1.2.1
     container_name: job-inserter
     restart: on-failure:3
     networks:
       - landsat_default
     environment:
-      - REDIS_SERVICE_HOST
+      - REDIS_SERVICE_HOST=redis-master
     volumes:
       - ./work-items.list:/var/opt/work-items.list
 
