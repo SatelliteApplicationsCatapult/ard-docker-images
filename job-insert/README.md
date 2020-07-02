@@ -14,7 +14,7 @@ Run the job insert image directly with a bind mount:
 $ docker run \
   -it \
   --name job-inserter \
-  -e REDIS_SERVICE_HOST \
+  -e REDIS_SERVICE_HOST=redis-master \
   --mount type=bind,source="$(pwd)"/work-items.list,target=/var/opt/work-items.list \
   --network=landsat_default \
   satapps/ard-workflow-job-insert:1.2.1
