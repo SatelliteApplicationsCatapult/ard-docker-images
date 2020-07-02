@@ -8,13 +8,13 @@ Find below examples to insert 1827 Landsat jobs from the `work-items.list` file.
 
 ### Using Docker
 
-Run the job insert image directly with a bind mount:
+Run the job insert image directly with a bind mount after replacing the network name as appropriate:
 
 ```
 $ docker run \
-  -it \
+  --rm \
   --name job-inserter \
-  -e REDIS_SERVICE_HOST=redis-master \
+  --env "REDIS_SERVICE_HOST=redis-master" \
   --mount type=bind,source="$(pwd)"/work-items.list,target=/var/opt/work-items.list \
   --network=landsat_default \
   satapps/ard-workflow-job-insert:1.2.1
