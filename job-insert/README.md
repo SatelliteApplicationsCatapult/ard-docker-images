@@ -17,7 +17,7 @@ $ docker run \
   -e REDIS_SERVICE_HOST \
   --mount type=bind,source="$(pwd)"/work-items.list,target=/var/opt/work-items.list \
   --network=landsat_default \
-  satapps/ard-workflow-job-insert:1.2.4
+  satapps/ard-workflow-job-insert:1.2.1
 
 Welcome to the Bitnami redis container
 Subscribe to project updates by watching https://github.com/bitnami/bitnami-docker-redis
@@ -32,7 +32,7 @@ errors: 0, replies: 1827
 
 ### Using Docker Compose
 
-Use the provided [docker-compose.yml](docker-compose.yml) file:
+Customize the provided [docker-compose.yml](docker-compose.yml) file with the name of the relevant network (e.g. `landsat_default`) and then issue:
 
 ```
 $ docker-compose up
