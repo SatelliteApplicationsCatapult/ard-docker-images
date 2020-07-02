@@ -100,9 +100,7 @@ errors: 0, replies: 1827
 
 ### Using Docker
 
-```
-$ docker rm job-inserter
-```
+The Docker container `job-inserter` is automatically removed at the end of the job insertion.
 
 ### Using Docker Compose
 
