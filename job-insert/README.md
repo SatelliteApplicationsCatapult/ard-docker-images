@@ -32,7 +32,7 @@ errors: 0, replies: 1827
 
 ### Using Docker Compose
 
-Use the provided [docker-compose.yaml](docker-compose.yaml) file:
+Use the provided [docker-compose.yml](docker-compose.yml) file:
 
 ```
 $ docker-compose up
