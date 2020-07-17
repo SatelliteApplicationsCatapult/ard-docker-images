@@ -8,16 +8,16 @@ Find below examples to insert 1827 Landsat jobs from the `work-items.list` file.
 
 ### Using Docker
 
-Run the job insert image directly with a bind mount:
+Run the job insert image directly with a bind mount after replacing the network name as appropriate:
 
 ```
 $ docker run \
-  -it \
+  --rm \
   --name job-inserter \
-  -e REDIS_SERVICE_HOST \
+  --env "REDIS_SERVICE_HOST=redis-master" \
   --mount type=bind,source="$(pwd)"/work-items.list,target=/var/opt/work-items.list \
   --network=landsat_default \
-  satapps/ard-workflow-job-insert:1.2.4
+  satapps/ard-workflow-job-insert:1.2.1
 
 Welcome to the Bitnami redis container
 Subscribe to project updates by watching https://github.com/bitnami/bitnami-docker-redis
@@ -32,7 +32,7 @@ errors: 0, replies: 1827
 
 ### Using Docker Compose
 
-Use the provided [docker-compose.yaml](docker-compose.yaml) file:
+Customize the provided [docker-compose.yml](docker-compose.yml) file with the name of the relevant network (e.g. `landsat_default`) and then issue:
 
 ```
 $ docker-compose up
@@ -100,9 +100,7 @@ errors: 0, replies: 1827
 
 ### Using Docker
 
-```
-$ docker rm job-inserter
-```
+The Docker container `job-inserter` is automatically removed at the end of the job insertion.
 
 ### Using Docker Compose
 
