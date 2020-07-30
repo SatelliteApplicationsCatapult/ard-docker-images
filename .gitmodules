@@ -25,3 +25,6 @@
 [submodule "sentinel-3-syn/workflows"]
 	path = sentinel-3-syn/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "sentinel-2-l1c-v5/workflows"]
+	path = sentinel-2-l1c-v5/workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
