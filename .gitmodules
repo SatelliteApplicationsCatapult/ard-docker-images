@@ -1,20 +1,20 @@
 [submodule "sentinel-2/workflows"]
-	path = sentinel-2/workflows
+	path = sentinel-2-l2a/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "sentinel-1/workflows"]
-	path = sentinel-1/workflows
+	path = sentinel-1-backscatter/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "landsat/workflows"]
 	path = landsat/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "water-classification/workflows"]
-	path = water-classification/workflows
+	path = water-classification-wofs/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "mlwater-classification/workflows"]
-	path = mlwater-classification/workflows
+	path = water-classification-mlpixel/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "sentinel-2-l1c/workflows"]
-	path = sentinel-2-l1c/workflows
+	path = sentinel-2-l1c-v8/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "search-and-discovery/workflows"]
 	path = search-and-discovery/workflows
