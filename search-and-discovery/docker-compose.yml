@@ -27,7 +27,9 @@ services:
       - USGS_USERNAME=${USGS_USERNAME}
       - USGS_PWD=${USGS_PWD}
       - SEDAS_USERNAME=${SEDAS_USERNAME}
-      - SEDAS_PWD=${SEDAS_PWD}  
+      - SEDAS_PWD=${SEDAS_PWD}
+      - GCP_PRIVATE_KEY=${GCP_PRIVATE_KEY}
+      - GCP_CLIENT_EMAIL=${GCP_CLIENT_EMAIL}
     ports:
       - "8866:8888"
     volumes:
