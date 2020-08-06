@@ -30,7 +30,7 @@ services:
       - S1_PROCESS_P4A=${S1_PROCESS_P4A}
       - SNAP_GPT=${SNAP_GPT}
     ports:
-      - "8866:8888"
+      - "8811:8888"
     volumes:
       - ./data:/tmp/data
       - ./workflows:/opt/notebooks
