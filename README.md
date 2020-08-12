@@ -21,7 +21,7 @@ docker login docker.io
 Build and upload:
 
 ```
-VERSION=1.2.8
+VERSION=1.3.1
 
 cd landsat
 docker build . -f Dockerfile -t satapps/ard-workflow-ls:${VERSION}
