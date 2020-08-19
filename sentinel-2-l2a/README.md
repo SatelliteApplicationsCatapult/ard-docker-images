@@ -4,7 +4,7 @@
 Pre-built Docker images for production use can be pulled from [our Docker Hub repo](https://hub.docker.com/r/satapps/).
 
 ## Dockerfile for development
-The provided [Dockerfile](Dockerfile-devel) creates a Docker image with an ARD workflow for Sentinel-2 datasets, set up by means of Miniconda v4.7.10. [Jupyter Notebook](https://jupyter.org/) is included for interactive development and started once the Docker image is run.
+The provided [Dockerfile](Dockerfile-devel) creates a Docker image with necessary packages for running an ARD workflow for Sentinel-2 L2A datasets, set up by means of Miniconda v4.7.10. [Jupyter Notebook](https://jupyter.org/) is included for interactive development and started once the Docker image is run. The actual workflow can be amended within the [ard-workflows](https://github.com/SatelliteApplicationsCatapult/ard-workflows) submodule [workflows](./workflows/).
 
 ## Docker Compose
 A [Docker Compose](docker-compose.yml) example file is provided to set up an interactive ARD workflow instance for development purposes.
