@@ -4,7 +4,7 @@
 Pre-built Docker images for production use can be pulled from [our Docker Hub repo](https://hub.docker.com/r/satapps/).
 
 ## Dockerfile for development
-The provided [Dockerfile](Dockerfile-devel) creates a Docker image with necessary packages for running an ARD workflow for Sentinel-2 L2A datasets, set up by means of Miniconda v4.7.10. [Jupyter Notebook](https://jupyter.org/) is included for interactive development and started once the Docker image is run. The actual workflow can be amended within the [ard-workflows](https://github.com/SatelliteApplicationsCatapult/ard-workflows) submodule at workflows directory.
+The provided [Dockerfile](Dockerfile-devel) creates a Docker image with necessary packages for running an ARD workflow for Sentinel-2 L2A datasets, set up by means of Miniconda v4.7.10. [Jupyter Notebook](https://jupyter.org/) is included for interactive development and started once the Docker image is run.
 
 ## Docker Compose
 A [Docker Compose](docker-compose.yml) example file is provided to set up an interactive ARD workflow instance for development purposes.
@@ -44,6 +44,9 @@ At any time afterwards, the queue can be processed interactively by running the 
 ### Jupyter Notebook
 Jupyter Notebook can be accessed at the URL: http://{Serve's IP Address}:8877.\
 The access token is `secretpassword`, which is set by means of the CMD statement within the [Dockerfile](Dockerfile).
+
+### Amending the workflow
+The actual workflow can be developed within the [ard-workflows](https://github.com/SatelliteApplicationsCatapult/ard-workflows) submodule at workflows directory.
 
 ## TODO
 - Define the `PLATFORM` and `QUEUE_NAME` environment variables, so these can be set to `SENTINEL_2` and `jobS2` respectively, making the worker code agnostic of the satellite/platform to work on
