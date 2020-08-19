@@ -1,4 +1,4 @@
-# ARD Workflow Container for Sentinel-2 Datasets
+# ARD Workflow Container for Sentinel-2 L2A Datasets
 
 ## Docker Hub images
 Pre-built Docker images for production use can be pulled from [our Docker Hub repo](https://hub.docker.com/r/satapps/).
