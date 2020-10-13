@@ -1,0 +1,37 @@
+FROM satapps/ard-workflow-s1:1.2.1
+
+LABEL maintainer="Luigi Di Fraia"
+
+RUN conda update conda --quiet --yes --freeze-installed \
+    && conda clean --all -f -y \
+    && find /opt/conda/ -follow -type f -name '*.a' -delete \
+    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
+    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
+
+RUN pip install --no-cache-dir \
+	xmltodict \
+	scipy \
+	matplotlib \ 
+	utility \    
+	sentinelsat
+
+COPY workflows/utils/s1am/snap/bin/gpt.vmoptions /opt/snap/bin/
+COPY workflows/utils/s1am/snap/etc/snap.auxdata.properties /opt/snap/etc/
+
+# ------------------------------------------
+
+RUN conda install --quiet --yes --freeze-installed \
+    jupyterlab \
+    notebook \
+    && conda clean --all -f -y \
+    && find /opt/conda/ -follow -type f -name '*.a' -delete \
+    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
+    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
+
+CMD jupyter lab \
+    --allow-root \
+    --notebook-dir=/opt/notebooks \
+    --NotebookApp.ip='0.0.0.0' \
+    --NotebookApp.port='8888' \
+    --NotebookApp.token='secretpassword' \
+    --NotebookApp.open_browser='False'
