@@ -22,10 +22,12 @@
 [submodule "modis-nbar/workflows"]
 	path = modis-nbar/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
-	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "sentinel-2-l1c-v5/workflows"]
 	path = sentinel-2-l1c-v5/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
 [submodule "sentinel-1-backscatter-am/workflows"]
 	path = sentinel-1-backscatter-am/workflows
+	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+[submodule "sentinel-3-syn/workflows"]
+	path = sentinel-3-syn/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
