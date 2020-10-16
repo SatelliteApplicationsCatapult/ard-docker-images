@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir \
 	xmltodict \
 	scipy \
 	matplotlib \ 
+	timeout-decorator \
 	utility \    
 	sentinelsat
 
