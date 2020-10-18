@@ -36,11 +36,18 @@ while not q.empty():
     itemstr = item.decode("utf=8")
     logging.info("Working on " + itemstr)
 
-    try:
-      process_scene(itemstr)
-    except timeout_decorator.TimeoutError:
-      logging.info("Timed out while working on " + itemstr)
-      pass
+    # In case COG conversion gets stuck, a TimeoutError is raised and we try again: the existance of a COG from an earlier iteration is enough to progress upon retrying
+    for x in range(0, 2):  # try 2 times
+      e = False
+      try:
+        process_scene(itemstr)
+        e = True
+      except timeout_decorator.TimeoutError:
+        logging.info("Timed out while working on " + itemstr)
+        e = False
+        pass
+      if e:
+        break
 
     q.complete(item)
   else:
