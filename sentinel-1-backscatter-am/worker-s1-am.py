@@ -22,28 +22,29 @@ import logging
 import rediswq
 
 level = os.getenv("LOGLEVEL", "INFO").upper()
-logging.basicConfig(format="%(asctime)s %(levelname)-8s %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=level)
+logging.basicConfig(format="%(asctime)s %(levelname)-8s %(name)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=level)
 
 host = os.getenv("REDIS_SERVICE_HOST", "redis-master")
 q = rediswq.RedisWQ(name="jobS1AM", host=host)
 
-logging.info("Worker with sessionID: " +  q.sessionID())
-logging.info("Initial queue state: empty=" + str(q.empty()))
+logger = logging.getLogger("worker")
+logger.info("Worker with sessionID: " +  q.sessionID())
+logger.info("Initial queue state: empty=" + str(q.empty()))
 
 while not q.empty():
   item = q.lease(lease_secs=1800, block=True, timeout=600) 
   if item is not None:
     itemstr = item.decode("utf=8")
-    logging.info("Working on " + itemstr)
+    logger.info("Working on " + itemstr)
 
-    # In case COG conversion gets stuck, a TimeoutError is raised and we try again: the existance of a COG from an earlier iteration is enough to progress upon retrying
+    # In case the COG conversion gets stuck, a TimeoutError is raised and we try again: the existance of a COG from an earlier iteration is often enough to progress upon retrying
     for x in range(0, 2):  # try 2 times
       e = False
       try:
         process_scene(itemstr)
         e = True
       except timeout_decorator.TimeoutError:
-        logging.info("Timed out while working on " + itemstr)
+        logger.info("Timed out while working on " + itemstr)
         e = False
         pass
       if e:
@@ -51,7 +52,7 @@ while not q.empty():
 
     q.complete(item)
   else:
-    logging.info("Waiting for work")
+    logger.info("Waiting for work")
 
-logging.info("Queue empty, exiting")
+logger.info("Queue empty, exiting")
 
