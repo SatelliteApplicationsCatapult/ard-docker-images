@@ -24,7 +24,7 @@ level = os.getenv("LOGLEVEL", "INFO").upper()
 logging.basicConfig(format="%(asctime)s %(levelname)-8s %(name)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=level)
 
 host = os.getenv("REDIS_SERVICE_HOST", "redis-master")
-q = rediswq.RedisWQ(name="jobS1", host=host)
+q = rediswq.RedisWQ(name="jobMOD", host=host)
 
 logger = logging.getLogger("worker")
 logger.info(f"Worker with sessionID: {q.sessionID()}")
