@@ -2,13 +2,13 @@ FROM continuumio/miniconda3:4.7.12
 
 LABEL maintainer="Luigi Di Fraia"
 
-RUN conda update conda --quiet --yes --freeze-installed \
+RUN conda update conda --quiet --yes \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-RUN conda install --quiet --yes --freeze-installed \
+RUN conda install --quiet --yes \
     boto3 \
     geopandas \
     pyyaml \
