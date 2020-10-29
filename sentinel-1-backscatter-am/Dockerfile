@@ -2,7 +2,7 @@ FROM satapps/ard-workflow-s1:1.2.1
 
 LABEL maintainer="Luigi Di Fraia"
 
-RUN conda update conda --quiet --yes \
+RUN conda update conda --quiet --yes --freeze-installed \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
