@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:4.7.12
+FROM continuumio/miniconda3:4.8.2
 
 LABEL maintainer="Luigi Di Fraia"
 
@@ -14,6 +14,7 @@ RUN conda install --quiet --yes \
     hdmedians \
     matplotlib \
     pandas \
+    pip \
     pyyaml \
     rasterio \
     requests \

@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:4.7.12
+FROM continuumio/miniconda3:4.8.2
 
 LABEL maintainer="Luigi Di Fraia"
 
@@ -11,6 +11,7 @@ RUN conda update conda --quiet --yes \
 RUN conda install --quiet --yes \
     boto3 \
     geopandas \
+    pip \
     pyyaml \
     rasterio \
     && conda clean --all -f -y \
@@ -42,4 +43,3 @@ COPY worker-s2.py /worker-s2.py
 COPY rediswq.py /rediswq.py
 
 CMD [ "python", "worker-s2.py" ]
-
