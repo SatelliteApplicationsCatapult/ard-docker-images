@@ -18,6 +18,8 @@ RUN conda install --quiet --yes \
     pyyaml \
     rasterio \
     requests \
+    scikit-learn \
+    xarray \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
@@ -25,6 +27,7 @@ RUN conda install --quiet --yes \
 
 RUN pip install --no-cache-dir \
     asynchronousfilereader \
+    descartes \
     redis \
     sklearn-xarray \
     rioxarray 
