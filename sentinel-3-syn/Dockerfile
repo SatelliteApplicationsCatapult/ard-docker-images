@@ -33,4 +33,3 @@ COPY worker-s2.py /worker-s2.py
 COPY rediswq.py /rediswq.py
 
 CMD [ "python", "worker-s2.py" ]
-
