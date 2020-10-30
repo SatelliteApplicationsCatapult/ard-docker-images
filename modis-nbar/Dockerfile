@@ -36,9 +36,8 @@ RUN pip install --no-cache-dir \
 
 COPY workflows/utils /utils
 
-COPY worker-s2.py /worker-s2.py
+COPY worker-mod.py /worker-mod.py
 
 COPY rediswq.py /rediswq.py
 
-CMD [ "python", "worker-s2.py" ]
-
+CMD [ "python", "worker-mod.py" ]
