@@ -13,6 +13,7 @@
 [submodule "sentinel-1-backscatter/workflows"]
 	path = sentinel-1-backscatter/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git
+	branch = band_parameters
 [submodule "sentinel-2-l1c-v5/workflows"]
 	path = sentinel-2-l1c-v5/workflows
 	url = https://github.com/SatelliteApplicationsCatapult/ard-workflows.git

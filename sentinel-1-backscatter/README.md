@@ -24,7 +24,9 @@ Once the above completes, the job queue is ready to be filled in with work items
 ```bash
 docker exec -it redis-master /bin/bash
 redis-cli -h redis-master
-rpush jobS1 '{"in_scene": "S1A_IW_GRDH_1SDV_20200617T071358_20200617T071423_033053_03D431_186D", "s3_bucket": "public-eo-data", "s3_dir": "test/sentinel_1/", "ext_dem": "common_sensing/ancillary_products/SRTM1Sec/Vanuatu_DEM.tif"}'
+rpush jobS1 '{"in_scene": "S1A_IW_GRDH_1SSV_20141010T063207_20141010T063220_002763_0031B5_E292", "s3_bucket": "public-eo-data", "s3_dir": "test/sentinel_1/", "ext_dem": "common_sensing/ancillary_products/SRTM1Sec/SRTM30_Fiji_E.tif"}'
+
+s3://public-eo-data/common_sensing/ancillary_products/SRTM1Sec/SRTM30_Fiji_E.tif
 ...
 lrange jobS1 0 -1
 ```
