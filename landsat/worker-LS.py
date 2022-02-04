@@ -27,6 +27,7 @@ host = os.getenv("REDIS_SERVICE_HOST", "redis-master")
 q = rediswq.RedisWQ(name="jobLS", host=host)
 
 logger = logging.getLogger("worker")
+logger.info(f"Connnecting to redis host: {host} got {q}")
 logger.info(f"Worker with sessionID: {q.sessionID()}")
 logger.info(f"Initial queue state: empty={q.empty()}")
 
