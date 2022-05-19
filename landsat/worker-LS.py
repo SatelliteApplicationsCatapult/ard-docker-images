@@ -44,7 +44,8 @@ while not q.empty():
         end = datetime.datetime.now().replace(microsecond=0)
         logger.info(f"Total processing time {end - start}")
     else:
-        logger.info("Waiting for work")
+        logger.info("No work. Exiting")
+        break
 
 logger.info("Queue empty, exiting")
 
