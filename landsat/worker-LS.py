@@ -5,7 +5,7 @@
 ################
 
 import json
-from time import time
+from datetime import datetime
 from utils.prepLS import prepareLS
 from utils.prep_utils import s3_single_upload
 
@@ -23,7 +23,7 @@ import rediswq
 import datetime
 
 
-log_file_name = f"landsat_ard_{time.now()}.log"
+log_file_name = f"landsat_ard_{datetime.now()}.log"
 log_file_path = f"/tmp/{log_file_name}.log"
 level = os.getenv("LOGLEVEL", "INFO").upper()
 logging.basicConfig(format="%(asctime)s %(levelname)-8s %(name)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=level)
