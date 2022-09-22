@@ -5,7 +5,6 @@
 ################
 
 import json
-from datetime import datetime
 from utils.prepLS import prepareLS
 from utils.prep_utils import s3_single_upload
 
@@ -23,21 +22,22 @@ import rediswq
 import datetime
 
 
-log_file_name = f"landsat_ard_{datetime.now()}.log"
+log_file_name = f"landsat_ard_{datetime.datetime.now()}.log"
 log_file_path = f"/tmp/{log_file_name}.log"
 level = os.getenv("LOGLEVEL", "INFO").upper()
 logging.basicConfig(format="%(asctime)s %(levelname)-8s %(name)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=level)
 logging.getLogger().addHandler(logging.StreamHandler())
-logging.getLogger().addHandler(logging.FileHandler(log_file_path))
-
-host = os.getenv("REDIS_SERVICE_HOST", "redis-master")
-q = rediswq.RedisWQ(name="jobLS", host=host)
-
-logger = logging.getLogger("worker")
-logger.info(f"Connnecting to redis host: {host} got {q}")
-logger.info(f"Worker with sessionID: {q.sessionID()}")
-logger.info(f"Initial queue state: empty={q.empty()}")
+logging_file_handler = logging.FileHandler(log_file_path)
+logging.getLogger().addHandler(logging_file_handler)
 try:
+    host = os.getenv("REDIS_SERVICE_HOST", "redis-master")
+    q = rediswq.RedisWQ(name="jobLS", host=host)
+
+    logger = logging.getLogger("worker")
+    logger.info(f"Connnecting to redis host: {host} got {q}")
+    logger.info(f"Worker with sessionID: {q.sessionID()}")
+    logger.info(f"Initial queue state: empty={q.empty()}")
+
     while not q.empty():
         item = q.lease(lease_secs=1800, block=True, timeout=600)
         if item is not None:
@@ -57,4 +57,5 @@ try:
     logger.info("Queue empty, exiting")
 
 finally:
-    s3_single_upload(log_file_path, f"commonsensing/logs/{log_file_name}", "public-eo-data")
+    logging_file_handler.close()
+    s3_single_upload(log_file_path, f"common-sensing/logs/{log_file_name}", "public-eo-data")
