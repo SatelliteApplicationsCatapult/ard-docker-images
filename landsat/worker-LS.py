@@ -57,5 +57,8 @@ try:
     logger.info("Queue empty, exiting")
 
 finally:
+    
+    logging.getLogger().removeHandler(logging_file_handler)
     logging_file_handler.close()
+    
     s3_single_upload(log_file_path, f"common-sensing/logs/{log_file_name}", "public-eo-data")
