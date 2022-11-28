@@ -23,7 +23,7 @@ import datetime
 
 
 log_file_name = f"landsat_ard_{datetime.datetime.now()}.log"
-log_file_path = f"/tmp/{log_file_name}.log"
+log_file_path = f"/tmp/{log_file_name}"
 level = os.getenv("LOGLEVEL", "INFO").upper()
 logging.basicConfig(format="%(asctime)s %(levelname)-8s %(name)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=level)
 logging.getLogger().addHandler(logging.StreamHandler())
@@ -55,10 +55,12 @@ try:
             break
 
     logger.info("Queue empty, exiting")
+    exit(0)
 
-finally:
+except:
     
     logging.getLogger().removeHandler(logging_file_handler)
     logging_file_handler.close()
-    
-    s3_single_upload(log_file_path, f"common-sensing/logs/{log_file_name}", "public-eo-data")
+    bucket = os.getenv("AWS_BUCKET", "")
+    if bucket:
+        s3_single_upload(log_file_path, f"common-sensing/logs/{log_file_name}", bucket)
