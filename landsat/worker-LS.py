@@ -65,4 +65,5 @@ except:
     logging_file_handler.close()
     bucket = os.getenv("AWS_BUCKET", "")
     if bucket:
-        s3_single_upload(log_file_path, f"common-sensing/logs/{log_file_name}", bucket)
+        logging.info(f"Uploading log file to s3://{bucket}/common_sensing2/logs/{log_file_name}")
+        s3_single_upload(log_file_path, f"common_sensing2/logs/{log_file_name}", bucket)
