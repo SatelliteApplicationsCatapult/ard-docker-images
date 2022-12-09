@@ -23,12 +23,6 @@ RUN pip install --no-cache-dir \
     asynchronousfilereader \
     redis 
 
-# ------------------------------------------
-
-COPY workflows/utils /utils
-
-COPY worker-LS.py /worker-LS.py
-
-COPY rediswq.py /rediswq.py
-
-CMD [ "python", "worker-LS.py" ]
+COPY . /app
+WORKDIR /app
+CMD [ "python3", "-m","landsat.worker-LS" ]

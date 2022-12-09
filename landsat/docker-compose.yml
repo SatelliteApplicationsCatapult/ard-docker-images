@@ -3,18 +3,15 @@ version: '3'
 services:
   app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../
+      dockerfile: landsat/Dockerfile
     network_mode: host
     environment:
       - REDIS_HOST=localhost
       - REDIS_PORT=6379
-      - REDIS_USGS_PROCESSED_CHANNEL=jobLS
+      - REDIS_USGS_PROCESSED_CHANNEL=
+      - AWS_ACCESS_KEY_ID=
       - AWS_SECRET_ACCESS_KEY=
       - AWS_DEFAULT_REGION=
-      - AWS_ENDPOINT_URL=https://s3-uk-1.sa-catapult.co.uk
-      - S3_ENDPOINT=https://s3-uk-1.sa-catapult.co.uk
-      - S3_BUCKET=public-eo-data
-    volumes:
-      - ./src:/src
-      - ./tests:/tests
+      - S3_ENDPOINT=
+      - S3_BUCKET=

@@ -4,3 +4,4 @@ redisdata
 __pycache__
 .ipynb_checkpoints
 docker-compose.yml
+Dockerfile
