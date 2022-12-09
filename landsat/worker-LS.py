@@ -30,8 +30,9 @@ logging.getLogger().addHandler(logging.StreamHandler())
 logging_file_handler = logging.FileHandler(log_file_path)
 logging.getLogger().addHandler(logging_file_handler)
 try:
-    host = os.getenv("REDIS_SERVICE_HOST", "redis-master")
-    port = int(os.getenv("REDIS_SERVICE_PORT", "6379"))
+    host = os.getenv("REDIS_HOST", "localhost")
+    port = int(os.getenv("REDIS_PORT", "6379"))
+    redis_queue = os.getenv("REDIS_USGS_PROCESSED_CHANNEL", "jobLS")
     logging.info(f"Connecting to Redis at {host}:{port}")
     q = rediswq.RedisWQ(name="jobLS", host=host, port=port)
 
